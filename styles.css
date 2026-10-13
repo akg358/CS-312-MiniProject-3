@@ -1,0 +1,23 @@
+body { font-family: Arial, sans-serif; background: #5d6671; margin: 0; padding: 20px; }
+.wrap { max-width: 700px; margin: auto; }
+h1 { margin-bottom: 20px; }
+.card { background: #fff; padding: 15px; border-radius: 6px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+input, textarea, select { width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #000000; border-radius: 4px; box-sizing: border-box; }
+textarea { resize: none; }
+button { background: #08b00a; color: #fff; border: 0; padding: 8px 14px; border-radius: 4px; cursor: pointer; }
+button:hover { background: #7ed278; }
+.tag { background: #dde7f7; color: #094b15; font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+.meta { font-size: 13px; color: #777; }
+.edit { display: inline-block; background: #f0ad4e; color: #fff; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 13px; }
+form { display: inline; }
+.del { background: #000000; margin-left: 5px; }
+.del:hover { background: #ff0800; }
+@media (max-width: 600px) { body { padding: 10px; } h1 { font-size: 22px; } .card { padding: 12px; } .edit, .del { padding: 8px 12px; } }
+
+
+.topbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.authinfo { font-size: 14px; color: #fff; }
+.authlink { color: #fff; margin-left: 12px; text-decoration: none; text-decoration: underline; }
+.authlink:hover { color: #7ed278; }
+.errormsg { color: #b00000; font-size: 14px; margin-top: 8px; }
+a { color: #094b15; }

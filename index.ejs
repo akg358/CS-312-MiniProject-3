@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <h1>My Blog</h1>
+            <% if (user) { %>
+                <div class="authinfo">
+                    <span>Signed in as <strong><%= user.name %></strong></span>
+                    <a href="/signout" class="authlink">Sign out</a>
+                </div>
+            <% } else { %>
+                <div class="authinfo">
+                    <a href="/signin" class="authlink">Sign in</a>
+                    <a href="/signup" class="authlink">Sign up</a>
+                </div>
+            <% } %>
+        </div>
+
+        <% if (user) { %>
+        <form action="/create" method="POST" class="card">
+            <input type="text" name="postTitle" placeholder="Title" required>
+
+            <textarea name="postBody" rows="4" placeholder="Type" required></textarea>
+            <button>Post</button>
+        </form>
+        <% } else { %>
+        <div class="card">
+            <p>Please <a href="/signin">sign in</a> to write a post.</p>
+        </div>
+        <% } %>
+
+        <% groupPosts.forEach(post => { %>
+            <div class="card">
+                <h3><%= post.title %></h3>
+                <p class="meta"><%= post.creator_name %> &middot; <%= post.date_created %></p>
+                <p><%= post.body %></p>
+
+                <% if (user && user.user_id === post.creator_user_id) { %>
+                    <a href="/edit/<%= post.blog_id %>" class="edit">Edit</a>
+                    <form action="/delete/<%= post.blog_id %>" method="POST">
+                        <button class="del" onclick="return confirm('Delete')">Delete</button>
+                    </form>
+                <% } %>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
